@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Asteroides</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_app">Asteroides</string>
+    <string name="btn_play">Jugar</string>
+    <string name="btn_config">Configurar</string>
+    <string name="btn_about">Acerca de</string>
+    <string name="btn_score">Puntuaciones</string>
+    <string name="btn_exit">Salir</string>
+    <string name="text_about">Este programa ha sido desarrollado como ejemplo en el curso de Android para demostrar cómo se pueden lanzar nuevas actividades desde la actividad principal.</string>
+    <string name="title_about">Acerca de</string>
+    <string name="title_score">Puntuaciones</string>
+    <string name="not_score">No hay puntuaciones</string>
+    
+    <!-- Strings for preferences -->
+    <string name="pref_play_music">Reproducir música</string>
+    <string name="pref_play_music_sum">Se reproduce música de fondo</string>
+    <string name="pref_type_graphic">Tipo de gráficos</string>
+    <string name="pref_type_graphic_sum">Se escoge la representación de gráficos</string>
+    <string name="pref_num_frag">Número de Fragmentos</string>
+    <string name="pref_num_frag_sum">En cuantos trozos se divide un asteroide</string>
+    
+    <!-- Titles for activities -->
+    <string name="title_act_about">Acerca De...</string>
+    <string name="title_act_pref">Preferencias...</string>
+    <string name="title_act_score">Puntuaciones...</string>
+    
+    
+</resources>

@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".Asteroides" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/title_app"
+        android:textSize="25sp"
+        android:layout_marginBottom="20dip" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="^" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_play" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="lanzarPreferencias"
+                android:text="@string/btn_config" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+           <Button
+               android:id="@+id/button4"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:onClick="lanzarPuntuaciones"
+               android:text="@string/btn_score" />
+
+             <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_about"
+                 />
+        </TableRow>
+        
+         <TableRow
+             android:id="@+id/tableRow3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+          
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="finishApp"
+                android:text="@string/btn_exit" />
+        </TableRow>
+
+    </TableLayout>
+
+    
+
+</LinearLayout>
