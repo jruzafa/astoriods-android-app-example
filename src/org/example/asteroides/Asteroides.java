@@ -14,7 +14,7 @@ public class Asteroides extends Activity {
 	
 	private Button bAcercaDe;
 	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,6 +27,7 @@ public class Asteroides extends Activity {
 				lanzarAcercaDe(null);
 			}
 		});
+		
 	}
 	
 	public void finishApp(View view){
