@@ -52,6 +52,12 @@ public class Asteroides extends Activity {
 		startActivity(i);
 	}
 	
+	public void lanzarJuego(View view){
+		Intent i = new Intent(this, Juego.class);
+		
+		startActivity(i);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu){
 		super.onCreateOptionsMenu(menu);
