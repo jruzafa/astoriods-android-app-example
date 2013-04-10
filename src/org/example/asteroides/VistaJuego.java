@@ -23,14 +23,14 @@ import android.view.View;
 public class VistaJuego extends View implements SensorEventListener {
 	
 	//	SENSORES
-	SensorManager mSensorManager = (SensorManager) Context.getSystemService(Context.SENSOR_SERVICE);
-	List<Sensor> listSensors = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
+	//SensorManager mSensorManager = (SensorManager) Context.getSystemService(Context.SENSOR_SERVICE);
+	//List<Sensor> listSensors = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
 	
-	if (!listSensors.isEmpty()) {
-	   Sensor orientationSensor = listSensors.get(0);
-	   mSensorManager.registerListener(this, orientationSensor,
-	                              SensorManager.SENSOR_DELAY_GAME);
-	}
+	//if (!listSensors.isEmpty()) {
+	//   Sensor orientationSensor = listSensors.get(0);
+	//  mSensorManager.registerListener(this, orientationSensor,
+	//                              SensorManager.SENSOR_DELAY_GAME);
+	//}
 	
 	private boolean hayValorInicial = false;
     private float valorInicial;
@@ -261,13 +261,40 @@ public class VistaJuego extends View implements SensorEventListener {
 		}
 		
 	}
+
 	class ThreadJuego extends Thread {
-		   @Override
-		   public void run() {
-		          while (true) {
-		                 actualizaFisica();
-		          }
-		   }
+		private boolean pausa, corriendo;
+
+		public synchronized void pausar() {
+			pausa = true;
+		}
+
+		public synchronized void reanudar() {
+			pausa = false;
+			notify();
+		}
+
+		public void detener() {
+			corriendo = false;
+			if (pausa)
+				reanudar();
+		}
+
+		@Override
+		public void run() {
+			corriendo = true;
+			while (corriendo) {
+				actualizaFisica();
+				synchronized (this) {
+					while (pausa) {
+						try {
+							wait();
+						} catch (Exception e) {
+						}
+					}
+				}
+			}
+		}
 	}
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy){}
@@ -283,6 +310,10 @@ public class VistaJuego extends View implements SensorEventListener {
         }
         giroNave=(int) (valor-valorInicial)/3 ;
 		
+	}
+
+	public ThreadJuego getThread() {
+		return thread;
 	}
 
 }
